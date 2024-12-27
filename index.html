@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .div {
+            width: 100%;
+            height: 100vh;
+            /* background-color: aqua; */
+            /* background-color: black; */
+            background-image: url("https://c1.klipartz.com/pngpicture/523/468/sticker-png-dice-games-yahtzee-snakes-and-ladders-boggle-gambling-board-game-bunco-recreation-thumbnail.png");
+            display: grid;
+            background-size: cover; 
+            grid-template-columns: 60% 40%;
+            /* scale: 0.9; */
+            /* backdrop-filter: blur(200px) */
+        }
+
+
+        li {
+            font-size: 30px;
+            margin-top: 50px;
+            color: rgb(0, 0, 0);
+           font-weight: bold;
+            /* background-color: rgb(50, 154, 15); */
+            /* list-style: none; */
+        }
+
+        .player_div {
+            display: grid;
+            grid-template-columns: 50% 50%;
+        }
+
+        .player_div>div {
+            /* border: 2px solid red; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .p1 {
+            /* font-size: 70px; */
+            text-align: center;
+           border-radius: 10PX;
+            height: 100px;
+            width: 100px;
+            background-color: black;
+            border: 1px solid red;
+        }
+        .p1>img{
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        .buttonp1 {
+            width: 200px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: blue;
+            color: blanchedalmond;
+            cursor: cell;
+        }
+
+        .p2 {
+            /* font-size: 70px; */
+            text-align: center;
+           border-radius: 10PX;
+            height: 100px;
+            width: 100px;
+            background-color: black;
+            border: 1px solid red;
+        }
+        .p2>img{
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        .buttonp2 {
+            width: 200px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: blue;
+            color: blanchedalmond;
+            cursor: cell;
+        }
+
+        .turnp1 {
+            color: rgb(44, 36, 31);
+            height: 100px;
+        }
+
+        .turnp2 {
+            color: rgb(44, 36, 31);
+            height: 100px;
+        }
+
+        .scorep2 {
+            color: red;
+            font-size: 50px;
+            /* font-weight: 200; */
+        }
+
+        .scorep1 {
+            color: red;
+            font-size: 50px;
+            /* font-weight: 200; */
+        }
+        .win{
+            background-color: red;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="win"></h1>
+    <div class="div">
+
+        <div class="player_div">
+            <div>
+                <div>
+                    <h1 class="turnp1">PLAYER-1</h1>
+
+                    <h1 class="p1">
+                        <img src="l0.png" alt="" class="imgp1">
+                    </h1>
+                    <br>
+                    <br>
+                    <br>
+                    <h3> player-1</h1>
+                        <br>
+                        <br>
+                        <h1><u><b><i>score- <span class="scorep1"></span></i></b></u>
+                    </h3>
+
+                    <br>
+                    <br>
+                    <br>
+                    <button class="buttonp1">click</button>
+
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h1 class="turnp2"></h1>
+                    <h1 class="p2">
+                        <img src="l0.png" alt="" class="imgp2">
+                    </h1>
+                    <br>
+                    <br>
+                    <br>
+                    <h3> player-2</h1>
+                        <br>
+                        <br>
+                        <h1><u><b><i>score- <span class="scorep2"></span></i></b></u>
+                    </h3>
+
+                    <br>
+                    <br>
+                    <br>
+                    <button class="buttonp2">click</button>
+
+                </div>
+            </div>
+            <!-- <button class="button">click</button> -->
+        </div>
+        <div>
+            <ul>
+                <li><b><i><u>NOTE</u></i></b> - jab apke score = 18 , 32, 46 , 66 , 97 honge tab apke score ka -12 gat
+                    jayega </li>
+                <li><b><i><u>NOTE</u></i></b> - jab apke score = 22 , 39, 56 , 71 , 84 honge tab apke score ka +12 bad
+                    jayega </li>
+                <li><b><i><u>NOTE</u></i></b> - jab apke score = 100 se jayada ho jayenge tab apke score ka 82 se chalu
+                    honge </li>
+                <li><b><i><u>NOTE</u></i></b> - jab apke score = 100 ho jayege tab app winner ho jayege </li>
+
+
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+
+
+
+    win = document.querySelector(".win")
+    imgp1 = document.querySelector(".imgp1")
+    imgp2 = document.querySelector(".imgp2")
+    buttonp1 = document.querySelector(".buttonp1")
+    buttonp2 = document.querySelector(".buttonp2")
+    turnp1 = document.querySelector(".turnp1")
+    turnp2 = document.querySelector(".turnp2")
+    scorep1 = document.querySelector(".scorep1")
+    p1 = document.querySelector(".p1")
+    scorep1.innerHTML = 0
+
+
+    // box.disabled = false
+    buttonp2.disabled = true
+
+    buttonp1.addEventListener("click", () => {
+        randomp1()
+
+    })
+
+
+    const randomp1 = () => {
+        number = Math.floor(Math.random() * 6 + 1)
+        // p1.innerHTML = number
+        imgp1.src=`l${number}.png`
+
+        for (i = 1; i <= number; i++) {
+            scorep1.innerHTML++
+        }
+
+        if (number < 6) {
+            buttonp2.disabled = false
+            buttonp1.disabled = true
+            // p2.innerHTML = ""
+            imgp2.src=`l${0}.png`
+
+            turnp1.innerHTML = ""
+            turnp2.innerHTML = " PLAYER-2"
+
+        }
+
+        sp1 = scorep1.innerHTML
+        if (sp1 == 18 || sp1 == 32 || sp1 == 46 || sp1 == 66 || sp1 == 97) {
+
+            alert(`${number} --- player-1 score  - 12`)
+            scorep1.innerHTML = scorep1.innerHTML - 12
+        }
+
+
+        if (sp1 == 22 || sp1 == 39 || sp1 == 56 || sp1 == 71 || sp1 == 84) {
+
+            alert(`${number} +++ player-2 score  + 12`)
+            for (i = 1; i <= 12; i++) {
+                scorep1.innerHTML++
+            }
+
+        }
+
+        if(sp1>100){
+            scorep1.innerHTML=82
+        }
+        if(sp1==100){
+           alert("player 1 winner")
+            win.innerHTML="PLAYER 1 WINNER"
+            buttonp2.disabled = true
+            buttonp1.disabled = true
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    scorep2 = document.querySelector(".scorep2")
+
+    p2 = document.querySelector(".p2")
+    scorep2.innerHTML = 0
+
+    buttonp2.addEventListener("click", () => {
+        randomp2()
+
+
+    })
+
+
+    const randomp2 = () => {
+        number = Math.floor(Math.random() * 6 + 1)
+        // p2.innerHTML = number
+        imgp2.src=`l${number}.png`
+
+        for (i = 1; i <= number; i++) {
+            scorep2.innerHTML++
+        }
+        if (number < 6) {
+            buttonp2.disabled = true
+            buttonp1.disabled = false
+            // p1.innerHTML = ""
+        imgp1.src=`l${0}.png`
+
+            turnp1.innerHTML = " PLAYER-1"
+            turnp2.innerHTML = ""
+        }
+
+        sp2 = scorep2.innerHTML
+        if (sp2 == 18 || sp2 == 32 || sp2 == 46 || sp2 == 66 || sp2 == 97) {
+
+            alert(`${number} --- player-2 score  - 12`)
+            scorep2.innerHTML = scorep2.innerHTML - 12
+        }
+
+
+        if (sp2 == 22 || sp2 == 39 || sp2 == 56 || sp2 == 71 || sp2 == 84) {
+
+            alert(`${number} +++ player-2 score  + 12`)
+            for (i = 1; i <= 12; i++) {
+                scorep2.innerHTML++
+            }
+
+        }
+        if(sp2>100){
+            scorep2.innerHTML=82
+        }
+
+        if(sp2==100){
+           alert("player 2 winner")
+            win.innerHTML="PLAYER 2 WINNER"
+            buttonp2.disabled = true
+            buttonp1.disabled = true
+        }
+
+    }
+</script>
